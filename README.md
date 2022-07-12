@@ -1,8 +1,8 @@
-# Criar arquivos de entrada de dados meteorológica para Delft3D
+# Criar arquivos de entrada de dados meteorológicos para Delft3D4
 
 ## Baixar os dados meteorológicos do ERA5
 
-Ver como baixar os dados [aqui](https://github.com/Dilello/BaixarDadosERA5no-Win10) usando o código 
+Ver como baixar os dados [aqui](https://github.com/Dilello/BaixarDadosERA5no-Win10) usando o código ERA5_request.py 
 
 ## Executando o código de conversão de arquivos .nc para os formatos .amp, .amv e .amu  aceitos pelo Deflt3D4
 
