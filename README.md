@@ -11,33 +11,33 @@ Salvar este [código]() no seu diretório de trabalho onde se encontram os arqui
 Abrir o terminal do Anaconda, ir até o diretório de trabalho e executar o código:
 
 ```python
- python convert.py
+# python convert.py
 ```
 
 Digitar o nome do arquivo .nc que deseja converter:
 
 ```python
- Input netcdf file name: MeuAquivo.nc
+# Input netcdf file name: MeuAquivo.nc
 ```
 
 Digitar a variável de interesse (exemplo: componente u da velocidade do vento - u10)
 
 ```python
-write the variables you want to read (through the gap): u10
+# write the variables you want to read (through the gap): u10
 ```
 
 Criar grid e arquivo e digitar o mês inicial em inglês (ex.: jan, feb, mar, ...):
 
 ```python
-write wind grid? y/n y
-start create meteo files? y/n y
-Using month: jan
+# write wind grid? y/n y
+# start create meteo files? y/n y
+# Using month: jan
 ```
 
 Digitar a contagem do passo do tempo:
 
 ```python
-time to write u10(time size (120,)): 120
+# time to write u10(time size (120,)): 120
 ```
 
 
