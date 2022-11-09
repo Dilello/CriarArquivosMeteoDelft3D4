@@ -175,7 +175,7 @@ for i in iter_var:
     elif (i == 'v10'):
         quantity1 = 'y_wind'
         unit1 = 'm s-1'
-    elif (i == 'sp'):
+    elif (i == 'msl'):
         quantity1 = 'air_pressure'
         unit1 = 'Pa'
     if (i == 't2m'):
