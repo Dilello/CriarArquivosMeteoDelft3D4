@@ -113,7 +113,7 @@ for i in iter_var:
     # LIST OF AVIABLE OUTPUT DATA FOR DELFT3D METEO INPUT FILES
     if (i == 'u10'): fmt = '.amu'
     if (i == 'v10'): fmt = '.amv'
-    if (i == 'sp'): fmt = '.amp'
+    if (i == 'msl'): fmt = '.amp'
     if (i == 't2m'): fmt = '.amt'
     if (i == 'mcc'): fmt = '.amc'
     if (i == 'rh'): fmt == '.amr'
