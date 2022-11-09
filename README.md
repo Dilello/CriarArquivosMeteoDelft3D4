@@ -20,7 +20,7 @@ Digitar o nome do arquivo .nc que deseja converter:
 # Input netcdf file name: MeuAquivo.nc
 ```
 
-Digitar a variável de interesse (exemplo: componente u e da velocidade do vento é u10 e v10, pressão ao nivel do mar é msl)
+Digitar a variável de interesse (exemplo: componente u e v da velocidade do vento é u10 e v10, e a pressão ao nivel do mar é msl)
 
 ```python
 # write the variables you want to read (through the gap): u10
