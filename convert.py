@@ -88,9 +88,9 @@ chk = input('write wind grid? y/n ')
 if (chk != 'n'):
     outfile2_name = 'uvsp_grd.dat'
     outfile2 = open(outfile2_name, 'w')
-    for i in range((len(root.variables['longitude']))):
-        for j in range(len(root.variables['latitude'])):
-            outfile2.write(str(root.variables['longitude'][i])+'    '+str(root.variables['latitude'][j])+'\n')
+    for i in range((len(root.variables['lon']))):
+        for j in range(len(root.variables['lat'])):
+            outfile2.write(str(root.variables['lon'][i])+'    '+str(root.variables['lat'][j])+'\n')
     print('wind grid write complete')
 
 # WRITE CHECK
@@ -101,8 +101,8 @@ if (check == 'n'):
 # USING CONST LIST
 nodata_value = -999.000
 grid_unit = 'degree' #  m or degree
-longitude_name = 'longitude'
-latitude_name = 'latitude'
+longitude_name = 'lon'
+latitude_name = 'lat'
 time_name = 'time'
 n_quantity = 1
 fmt = '.dat'
@@ -111,9 +111,9 @@ month = str(input('Using month: '))
 for i in iter_var:
 
     # LIST OF AVIABLE OUTPUT DATA FOR DELFT3D METEO INPUT FILES
-    if (i == 'u10'): fmt = '.amu'
-    if (i == 'v10'): fmt = '.amv'
-    if (i == 'msl'): fmt = '.amp'
+    if (i == 'U10M'): fmt = '.amu'
+    if (i == 'V10M'): fmt = '.amv'
+    if (i == 'MSL'): fmt = '.amp'
     if (i == 't2m'): fmt = '.amt'
     if (i == 'mcc'): fmt = '.amc'
     if (i == 'rh'): fmt == '.amr'
@@ -203,84 +203,3 @@ for i in iter_var:
             outfile.write('\n')
         time1 += 6
     print('done')
-
-# THERE IS NO RELETIVE HUMIDITY ON ECMWF ERA REANALYS DATABASE SO LOWER YOU CAN WRITE
-# IT IN FILE FOR DELTARES DELFT3D FLOW WITH CONSTATN VALUE (STAT_RH)
-# FORMAT OF OUTPUT FILE FOR THE SIMILAR PREVIOUS
-chk = input('Print relative humidity? y/n ')
-if (chk == 'n'):
-    sys.exit()
-
-stat_rh = 70.0 #  RELATIVE HUMIDITY CONST VALUE
-itr = iter_var[0]
-iter_var = []
-iter_var.append(itr)
-
-for i in iter_var:
-    fmt = '.amr'
-    
-    # FOR SINGLE MONTH CHOOSE ONE:
-    mnth_chck == False
-    # mnth_chck == True
-    if mnth_chck == True:
-        month = str(input('Using month: '))
-        if (month == 'jan'):
-            monthtime = '01'
-        if (month == 'feb'):
-            monthtime = '02'
-        if (month == 'mar'):
-            monthtime = '03'
-        if (month == 'apr'):
-            monthtime = '04'
-        if (month == 'may'):
-            monthtime = '05'
-        if (month == 'jun'):
-            monthtime = '06'
-        if (month == 'jul'):
-            monthtime = '07'
-        if (month == 'aug'):
-            monthtime = '08'
-        if (month == 'sep'):
-            monthtime = '09'
-        if (month == 'oct'):
-            monthtime = '10'
-        if (month == 'nov'):
-            monthtime = '11'
-        if (month == 'dec'):
-            monthtime = '12' 
-
-    outfile_name = 'rh_'+month+fmt
-    outfile = open(outfile_name, 'w')
-    outfile.write('FileVersion = 1.03\n')
-    outfile.write('filetype = meteo_on_equidistant_grid\n')
-    outfile.write('NODATA_value = '+str(nodata_value)+'\n')
-    n_cols = vars[i].shape[2]
-    outfile.write('n_cols = '+str(n_cols)+'\n')
-    n_rows = vars[i].shape[1]
-    outfile.write('n_rows = '+str(n_rows)+'\n')
-    outfile.write('grid_unit = '+str(grid_unit)+'\n')
-    x_llcorner = root.variables[longitude_name][0]
-    y_llcorner = root.variables[latitude_name][-1]
-    outfile.write('x_llcorner = '+str(x_llcorner)+'\n')
-    outfile.write('y_llcorner = '+str(y_llcorner)+'\n')
-    dy = (root.variables[longitude_name][-1] - root.variables[longitude_name][0]) / (n_rows - 1)
-    dx = (root.variables[latitude_name][0] - root.variables[latitude_name][-1]) / (n_cols - 1)
-    outfile.write('dx = '+str(dx)+'\n')
-    outfile.write('dy = '+str(dy)+'\n')
-    outfile.write('n_quantity = '+str(n_quantity)+'\n')
-    outfile.write('quantity1 = relative_humidity'+'\n')
-    outfile.write('unit1 = %'+'\n')
-    time1 = 0
-
-    # WRITE DATA IN FILE
-    for t in range(int(input('time to write : '))):
-        # time1 = root.variables[time_name][t]
-        outfile.write('TIME = ' + str(root.variables[time_name][t]) + ' hours since 1900-01-01 00:00:00 +00:00\n')
-        # FOR SINGLE MONTH WRITE USE THIS:
-        # outfile.write('TIME = ' + str(time1) + ' hours since 2016-' + monthtime + '-01 00:00:00 +00:00\n')
-        for m in range(int(vars[i].shape[2])):
-            for n in range(int(vars[i].shape[1])):
-                outfile.write(str(stat_rh)+' ')
-            outfile.write('\n')
-        time1 += 6
-    print('Done.')
