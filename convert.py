@@ -169,13 +169,13 @@ for i in iter_var:
     outfile.write('n_quantity = '+str(n_quantity)+'\n')
     quantity1 = '???'
     unit1 = '???'
-    if (i == 'u10'):
+    if (i == 'U10M'):
         quantity1 = 'x_wind'
         unit1 = 'm s-1'
-    elif (i == 'v10'):
+    elif (i == 'V10M'):
         quantity1 = 'y_wind'
         unit1 = 'm s-1'
-    elif (i == 'msl'):
+    elif (i == 'MSL'):
         quantity1 = 'air_pressure'
         unit1 = 'Pa'
     if (i == 't2m'):
