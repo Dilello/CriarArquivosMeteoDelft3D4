@@ -9,7 +9,9 @@ Ver como baixar os dados [aqui](https://github.com/Dilello/BaixarDadosERA5no-Win
 Salvar o código [convertv2.py](https://github.com/Dilello/CriarArquivosMeteoDelft3D4/blob/main/convertv2.py) no seu diretório de trabalho onde se encontram os arquivos .nc de dados meteorológicos (Exemplo: pressão ao nível do mar (Pa) e as componentes da velocidade (m/s) do vento a 10 m). O nome dos arquivos devem vir da seguinte maneira:
 
 MSL_Y2020M2.nc
-U10M_Y2021M10.nc
+
+U10M_Y2021M10.
+
 V10M_y2024M9.nc
 
 Abrir o terminal do Anaconda, ir até o diretório de trabalho e executar o código:
@@ -74,5 +76,7 @@ Informar quais variáveis meteorológicas são:
 Os arquivos serão salvos na mesma pasta dos arquivos de inputs, porém com os seguintes nomes:
 
 MSL_202002.amp
+
 U10M_202110.amu
+
 V10M_202409.amv
