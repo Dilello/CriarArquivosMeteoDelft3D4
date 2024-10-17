@@ -2,16 +2,16 @@
 
 ## Baixar os dados meteorológicos do ERA5
 
-Ver como baixar os dados [aqui](https://github.com/Dilello/BaixarDadosERA5no-Win10) usando o código [ERA5_request.py](https://github.com/Dilello/BaixarDadosERA5no-Win10/blob/main/ERA5_request.py) 
+Ver como baixar os dados [aqui](https://github.com/Dilello/BaixarDadosERA5no-Win10) usando o código [ERA5_request.py](https://github.com/Dilello/BaixarDadosERA5no-Win10/blob/main/ERA5_request.py) e o código [ERA5_convert.py](https://github.com/Dilello/BaixarDadosERA5no-Win10/blob/main/ERA5_convert.py)
 
 ## Executando o código de conversão de arquivos .nc para os formatos .amp, .amv e .amu  aceitos pelo Deflt3D4
 
-Salvar o código [convert.py](https://github.com/Dilello/CriarArquivosMeteoDelft3D4/blob/main/convert.py) no seu diretório de trabalho onde se encontram os arquivos .nc de dados meteorológicos (Exemplo: pressão ao nível do mar (Pa) e as componentes da velocidade (m/s) do vento a 10 m).
+Salvar o código [convertv2.py](https://github.com/Dilello/CriarArquivosMeteoDelft3D4/blob/main/convertv2.py) no seu diretório de trabalho onde se encontram os arquivos .nc de dados meteorológicos (Exemplo: pressão ao nível do mar (Pa) e as componentes da velocidade (m/s) do vento a 10 m).
 
 Abrir o terminal do Anaconda, ir até o diretório de trabalho e executar o código:
 
 ```python
-# python convert.py
+# python convertv2.py
 ```
 
 Digitar o nome do arquivo .nc que deseja converter:
