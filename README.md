@@ -6,7 +6,7 @@ Ver como baixar os dados [aqui](https://github.com/Dilello/BaixarDadosERA5no-Win
 
 ## Executando o código de conversão de arquivos .nc para os formatos .amp, .amv e .amu  aceitos pelo Deflt3D4
 
-Salvar o código [convertv2.py](https://github.com/Dilello/CriarArquivosMeteoDelft3D4/blob/main/convertv2.py) no seu diretório de trabalho onde se encontram os arquivos .nc de dados meteorológicos (Exemplo: pressão ao nível do mar (Pa) e as componentes da velocidade (m/s) do vento a 10 m). O nome dos arquivos devem vir da seguinte maneira:
+Salvar o código [convertv2.py](https://github.com/Dilello/CriarArquivosMeteoDelft3D4/blob/main/convertv2.py) no seu diretório de trabalho onde se encontram os arquivos .nc de dados meteorológicos (Exemplo: pressão ao nível do mar (Pa) e as componentes da velocidade (m/s) do vento a 10 m). O nome dos arquivos .nc devem vir da seguinte maneira:
 
 MSL_Y2020M2.nc
 
@@ -73,10 +73,88 @@ Informar quais variáveis meteorológicas são:
 # Enter variables (MSL, U10M, V10M, ...): V10M
 # [MSL, U10M, V10M]
 ```
-Os arquivos serão salvos na mesma pasta dos arquivos de inputs, porém com os seguintes nomes:
+
+Os arquivos mensais serão salvos na mesma pasta dos arquivos de inputs, porém com os seguintes nomes:
 
 MSL_202002.amp
 
 U10M_202110.amu
 
 V10M_202409.amv
+
+## Executando o código que concatena arquivos mensais do tipo .amp, .amv e .amu aceitos pelo Deflt3D4 em único arquivo .amp, .amu e .amv para todo o período de interesse
+
+Salvar o código [JoinMeteoFiles.py](https://github.com/Dilello/CriarArquivosMeteoDelft3D4/blob/main/JoinMeteoFiles.py) no seu diretório de trabalho onde se encontram todos os arquivos mensais .amp, .amu e .amv que deseja concatenar. O nome dos arquivos .amp, .amv e .amu deverão vir da seguinte maneira:
+
+MSL_202002.amp
+
+U10M_202110.amu
+
+V10M_202409.amv
+
+Primeira etapa é renomear o arquivo (.amp, .amu e amv) do primeiro mês do período de interesse (Exemplo:MSL_202007.amp, U10M_202007.amu e V10M_202007.amv), chamando-os de:
+
+MSLcompleteFile.amp
+
+U10McompleteFile.amu
+
+V10McompleteFile.amv
+
+Abrir o terminal do Anaconda, ir até o diretório de trabalho e executar o código:
+
+```python
+# python JoinMeteoFiles.py
+```
+
+Digitar o ano do SEGUNDO mês relativo ao período de modelagem:
+
+```python
+# Input year start SECOND month run (YYYY): 2020
+```
+
+Digitar o ano final relativo ao período de modelagem:
+
+```python
+# Input year end run (YYYY): 2024
+```
+
+Digitar o SEGUNDO mês relativo ao período de modelagem:
+
+```python
+# Input month start SECOND month run (number: 1, 2, ..., 11, 12): 8
+```
+
+Digitar o mês final relativo ao período de modelagem:
+
+```python
+# Input month end run (number: 1, 2, ..., 11, 12): 9
+```
+
+Digitar o dia final relativo ao período de modelagem:
+
+```python
+# Input day end run (number: 1, 2, ..., 30, 31): 30
+```
+
+Informar o número de variáveis meteorológicas:
+
+```python
+# Enter number of variables: 3
+```
+
+Informar quais variáveis meteorológicas são:
+
+```python
+# Enter variables (MSL, U10M, V10M, ...): MSL
+# Enter variables (MSL, U10M, V10M, ...): U10M
+# Enter variables (MSL, U10M, V10M, ...): V10M
+# [MSL, U10M, V10M]
+```
+
+No final do processo, todos os dados estarão concatenado e salvos nos seguintes arquivos:
+
+MSLcompleteFile.amp
+
+U10McompleteFile.amu
+
+V10McompleteFile.amv
