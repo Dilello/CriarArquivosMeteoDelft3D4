@@ -25,7 +25,7 @@ from netCDF4 import Dataset
 
 print('\nstart read .nc file\n')
 
-year_start_model = int(input('Input year start model (YYYY): '))
+year_start_model = int(input('Input year from Reference Date - Delft3D4 (YYYY): '))
 year_start = int(input('Input year start run (YYYY): '))
 year_end = int(input('Input year end run (YYYY): '))
 month_start = int(input('Input month start run (number: 1, 2, ..., 11, 12): '))
@@ -35,7 +35,7 @@ years_run = np.arange(year_start, year_end+1, 1)
 months_run = np.arange(month_start, month_end+1, 1)
 var_run = []
 # number of elements as input
-n_elem = int(input("Enter number of variables : "))
+n_elem = int(input("Enter number of variables (1, 2, 3, ...): "))
 # iterating till the range
 for i in range(0, n_elem):
     elem = str(input("Enter variables (MSL, U10M, V10M, ...): "))
