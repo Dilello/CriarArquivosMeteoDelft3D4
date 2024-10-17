@@ -10,7 +10,7 @@ Salvar o código [convertv2.py](https://github.com/Dilello/CriarArquivosMeteoDel
 
 MSL_Y2020M2.nc
 
-U10M_Y2021M10.
+U10M_Y2021M10.nc
 
 V10M_y2024M9.nc
 
