@@ -148,8 +148,20 @@ for ivar_run in var_run:
                 y_llcorner = root.variables[latitude_name][-1]
                 outfile.write('x_llcorner = '+str(x_llcorner)+'\n')
                 outfile.write('y_llcorner = '+str(y_llcorner)+'\n')
-                dy = (root.variables[longitude_name][0] - root.variables[longitude_name][-1]) / (n_cols - 1) # REVISAR ISSO
-                dx = (root.variables[latitude_name][-1] - root.variables[latitude_name][0]) / (n_rows - 1) # REVISAR ISSO
+                if root.variables[longitude_name][0] >= 0:
+                    if root.variables[latitude_name][0] >= 0:
+                        dx = (root.variables[latitude_name][0] - root.variables[latitude_name][-1]) / (n_rows - 1) # REVISAR ISSO
+                        dy = (root.variables[longitude_name][-1] - root.variables[longitude_name][0]) / (n_cols - 1) # REVISAR ISSO
+                    else:
+                        dx = (root.variables[latitude_name][0] - root.variables[latitude_name][-1]) / (n_rows - 1) # REVISAR ISSO
+                        dy = (root.variables[longitude_name][0] - root.variables[longitude_name][-1]) / (n_cols - 1) # REVISAR ISSO
+                else:
+                    if root.variables[latitude_name][0] >= 0:
+                        dx = (root.variables[latitude_name][-1] - root.variables[latitude_name][0]) / (n_rows - 1) # REVISAR ISSO
+                        dy = (root.variables[longitude_name][-1] - root.variables[longitude_name][0]) / (n_cols - 1) # REVISAR ISSO
+                    else:
+                        dx = (root.variables[latitude_name][-1] - root.variables[latitude_name][0]) / (n_rows - 1) # REVISAR ISSO
+                        dy = (root.variables[longitude_name][0] - root.variables[longitude_name][-1]) / (n_cols - 1) # REVISAR ISSO
                 outfile.write('dx = '+str(dx)+'\n')
                 outfile.write('dy = '+str(dy)+'\n')
                 outfile.write('n_quantity = '+str(n_quantity)+'\n')
